@@ -1,9 +1,0 @@
-(function() {
-    var implementors = Object.fromEntries([["Fixtures",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.91.1/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"enum\" href=\"Fixtures/fixture/enum.Property.html\" title=\"enum Fixtures::fixture::Property\">Property</a>",1,["Fixtures::fixture::Property"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.91.1/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"Fixtures/Color/struct.Color.html\" title=\"struct Fixtures::Color::Color\">Color</a>",1,["Fixtures::Color::Color"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.91.1/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"Fixtures/fixture/struct.Channel.html\" title=\"struct Fixtures::fixture::Channel\">Channel</a>",1,["Fixtures::fixture::Channel"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.91.1/core/marker/trait.Freeze.html\" title=\"trait core::marker::Freeze\">Freeze</a> for <a class=\"struct\" href=\"Fixtures/fixture/struct.Fixture.html\" title=\"struct Fixtures::fixture::Fixture\">Fixture</a>",1,["Fixtures::fixture::Fixture"]]]]]);
-    if (window.register_implementors) {
-        window.register_implementors(implementors);
-    } else {
-        window.pending_implementors = implementors;
-    }
-})()
-//{"start":57,"fragment_lengths":[1226]}
