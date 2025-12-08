@@ -8,6 +8,56 @@ pub(crate) struct Channel{
     fine_channel: Option<u16>,
 }
 
+trait MultiChannel {
+    fn get_last_channel(&self) -> u16;
+}
+
+struct Beam{
+    zoom: Channel,
+    focus: Channel,
+    frost: Channel,
+}
+
+impl MultiChannel for Beam {
+    fn get_last_channel(&self) -> u16 {
+        let mut last_channel = 0;
+        for channel in [&self.zoom, &self.focus, &self.frost] {
+            if channel.is_real && channel.channel > last_channel {
+                last_channel = channel.channel;
+            }
+            if let Some(fine) = channel.fine_channel {
+                if fine > last_channel {
+                    last_channel = fine;
+                }
+            }
+        }
+        last_channel
+    }
+}
+
+struct Prism{
+    prism: Channel,
+    prism_rotation: Channel,
+    prism_indexation: Channel,
+}
+
+impl MultiChannel for Prism {
+    fn get_last_channel(&self) -> u16 {
+        let mut last_channel = 0;
+        for channel in [&self.prism, &self.prism_rotation, &self.prism_indexation] {
+            if channel.is_real && channel.channel > last_channel {
+                last_channel = channel.channel;
+            }
+            if let Some(fine) = channel.fine_channel {
+                if fine > last_channel {
+                    last_channel = fine;
+                }
+            }
+        }
+        last_channel
+    }
+}
+
 /// Represents the various configurable properties of a lighting fixture.
 ///
 /// This enum encapsulates all supported attribute types of a fixture,
@@ -69,11 +119,7 @@ enum Property {
     Color(Color),
     Dimmer(Channel),
     Strobe(Channel),
-    Beam{
-        zoom: Channel,
-        focus: Channel,
-        frost: Channel,
-    },
+    Beam(Beam),
     Shutter(Channel),
     Prism{
         prism: Channel,
@@ -98,6 +144,27 @@ enum Property {
     },
 
     Other(String, Channel),
+}
+
+struct FixtureType {
+    name: String,
+    manufacturer: String,
+    total_channels: u16,
+    properties: HashMap<String, Property>,
+}
+
+impl FixtureType {
+    fn new(name: String, manufacturer: String, properties: HashMap<String, Property>) -> Self {
+        let total_channels = properties.values().map(
+
+        ).max();
+        FixtureType {
+            name,
+            manufacturer,
+            total_channels,
+            properties,
+        }
+    }
 }
 
 
