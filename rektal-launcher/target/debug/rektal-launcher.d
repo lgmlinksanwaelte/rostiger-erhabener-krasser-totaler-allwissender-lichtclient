@@ -1,0 +1,1 @@
+/home/loetgott/RustroverProjects/rostiger-erhabener-krasser-totaler-allwissender-lichtclient/rektal-launcher/target/debug/rektal-launcher: /home/loetgott/RustroverProjects/rostiger-erhabener-krasser-totaler-allwissender-lichtclient/rektal-launcher/src/main.rs
