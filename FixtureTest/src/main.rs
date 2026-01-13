@@ -1,7 +1,7 @@
 mod color;
 mod fixture;
 
-///startPoint
+///startPoint -test
 fn main() {
     println!("Hello, world!");
 }
