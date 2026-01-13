@@ -22,6 +22,16 @@ jobs:
 
       - name: Deploy via rsync
         run: |
-          rsync -avzr --delete -e "ssh -i ${{ secrets.DOCS_SSH_KEY }} -p 2222 -o StrictHostKeyChecking=no" FixtureTest/target/doc/ ${{ secrets.DOCS_USER }}@${{ secrets.DOCS_HOST }}:/var/www/rust-docs
-          ssh -i ${{ secrets.DOCS_SSH_KEY }} -p 2222 ${{ secrets.DOCS_USER }}@${{ secrets.DOCS_HOST }} "chown -R caddy:caddy /var/www/rust-docs && chmod -R 755 /var/www/rust-docs"
+          # SSH-Key als Datei speichern
+          echo "${{ secrets.DOCS_SSH_KEY }}" > id_rsa_deploy
+          chmod 600 id_rsa_deploy
+
+          REMOTE_USER="${{ secrets.DOCS_USER }}"
+          REMOTE_HOST="${{ secrets.DOCS_HOST }}"
+
+          # Rsync aufrufen
+          rsync -avzr --delete -e "ssh -i id_rsa_deploy -p 2222 -o StrictHostKeyChecking=no" FixtureTest/target/doc/ "$REMOTE_USER@$REMOTE_HOST:/var/www/rust-docs"
+
+          # Berechtigungen auf dem Server setzen
+          ssh -i id_rsa_deploy -p 2222 $REMOTE_USER@$REMOTE_HOST "chown -R caddy:caddy /var/www/rust-docs && chmod -R 755 /var/www/rust-docs"
 
