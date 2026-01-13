@@ -21,12 +21,6 @@ jobs:
           cargo doc --no-deps
 
       - name: Deploy via rsync
-        uses: burnett01/rsync-deployments@7.1.0
-        with:
-          switches: -avzr --delete
-          path: FixtureTest/target/doc/
-          remote_path: /var/www/rust-docs
-          remote_host: ${{ secrets.DOCS_HOST }}
-          remote_user: ${{ secrets.DOCS_USER }}
-          remote_key: ${{ secrets.DOCS_SSH_KEY }}
+        run: |
+          rsync -avzr --delete -e "ssh -i ${{ secrets.DOCS_SSH_KEY }} -p 2222" FixtureTest/target/doc/ $
 
