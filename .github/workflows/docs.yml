@@ -18,7 +18,7 @@ jobs:
         run: cargo doc --no-deps
 
       - name: Deploy via rsync
-        uses: burnett01/rsync-deployments@v7.0.1
+        uses: burnett01/rsync-deployments@v8.0.3
         with:
           switches: -avz --delete
           path: target/doc/
