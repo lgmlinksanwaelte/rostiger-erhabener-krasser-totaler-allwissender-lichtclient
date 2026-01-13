@@ -1,7 +1,7 @@
 mod color;
 mod fixture;
 
-///startPoint
+///startPoint - This is the main entry point of the FixtureTest application.
 fn main() {
     println!("Hello, world!");
 }

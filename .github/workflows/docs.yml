@@ -24,7 +24,7 @@ jobs:
           zip -r docs.zip doc
 
       - name: Upload docs as release artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: rust-docs
           path: FixtureTest/target/docs.zip
