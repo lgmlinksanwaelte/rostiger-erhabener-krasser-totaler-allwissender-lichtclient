@@ -4,7 +4,7 @@ use crate::roles;
 /// that can be executed based on user interactions.
 pub enum GuiAction {
     StartRektal,
-    SaveRole(roles::Roles),
+    SaveRole(roles::Role),
     SaveName(String),
 
 }

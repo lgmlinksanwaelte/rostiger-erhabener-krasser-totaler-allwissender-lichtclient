@@ -53,11 +53,11 @@ fn build_ui(app: &Application) {
         if let Some(text) = c.active_text() {
             let action = GuiAction::SaveRole(
                 match text.as_str() {
-                    "Programmer" => crate::roles::Roles::Programmer,
-                    "blind Programmer" => crate::roles::Roles::BlindProgrammer,
-                    "Operator" => crate::roles::Roles::Operator,
-                    "Interface" => crate::roles::Roles::Interface,
-                    _ => crate::roles::Roles::Programmer,
+                    "Programmer" => crate::roles::Role::Programmer,
+                    "blind Programmer" => crate::roles::Role::BlindProgrammer,
+                    "Operator" => crate::roles::Role::Operator,
+                    "Interface" => crate::roles::Role::Interface,
+                    _ => crate::roles::Role::Programmer,
                 }
             );
             println!("Selected role: {}", text);

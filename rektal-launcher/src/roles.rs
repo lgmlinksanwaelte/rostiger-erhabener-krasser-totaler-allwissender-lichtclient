@@ -4,7 +4,7 @@
 /// - blind Programmer
 /// - Operator
 /// - Interface
-pub enum Roles {
+pub enum Role {
     Programmer,
     BlindProgrammer,
     Operator,
@@ -12,13 +12,13 @@ pub enum Roles {
 }
 
 ///Implementation of method as_str to get the Role Name as a &str
-impl Roles {
+impl Role {
     pub(crate) fn as_str(&self) -> &str {
         match self {
-            Roles::Programmer => "Programmer",
-            Roles::BlindProgrammer => "blind Programmer",
-            Roles::Operator => "Operator",
-            Roles::Interface => "Interface",
+            Role::Programmer => "Programmer",
+            Role::BlindProgrammer => "blind Programmer",
+            Role::Operator => "Operator",
+            Role::Interface => "Interface",
         }
     }
 }

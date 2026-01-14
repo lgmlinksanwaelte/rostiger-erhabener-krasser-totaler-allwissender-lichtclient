@@ -1,0 +1,2 @@
+createSrcSidebar('[["rektal_launcher",["",[["gui",[],["mod.rs"]],["logic",[],["mod.rs"]]],["gui_actions.rs","main.rs","roles.rs","state.rs"]]],["rektal_launcher",["",[["gui",[],["mod.rs"]],["logic",[],["mod.rs"]]],["gui_actions.rs","main.rs","roles.rs"]]],["rektal_launcher",["",[],["gui.rs","gui_actions.rs","main.rs","roles.rs"]]],["rektal_launcher",["",[],["gui.rs","main.rs"]]]]');
+//{"start":19,"fragment_lengths":[123,113,77,49]}

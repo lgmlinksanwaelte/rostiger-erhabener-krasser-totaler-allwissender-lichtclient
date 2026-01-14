@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["save_name","save_role","set_start_local","start_rektal"],"struct":["STATE"]};

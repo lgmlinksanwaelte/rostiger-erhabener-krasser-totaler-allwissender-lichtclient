@@ -2,6 +2,7 @@ mod gui;
 mod gui_actions;
 mod roles;
 mod logic;
+mod state;
 
 use std::process::Command;
 use std::rc::Rc;
