@@ -1,8 +1,25 @@
-- name: Build docs
-  run: cargo doc --no-deps
+name: Build Rust Docs
 
-- name: Upload docs
-  uses: actions/upload-artifact@v4
-  with:
-    name: rust-docs
-    path: target/doc
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build docs
+        run: cargo doc --no-deps
+
+      - name: Upload docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-docs
+          path: target/doc
