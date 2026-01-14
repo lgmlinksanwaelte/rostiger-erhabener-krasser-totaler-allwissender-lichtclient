@@ -6,8 +6,8 @@ use lazy_static::lazy_static;
 use crate::roles::Role;
 use crate::state::State;
 
-///Module internal state managed with lazy_static and Mutex
 lazy_static! {
+    /// Module internal state managed with lazy_static and Mutex
     static ref STATE: Mutex<State> = Mutex::new(State {
         name: String::new(),
         role: Role::Operator,

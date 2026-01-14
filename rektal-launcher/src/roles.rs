@@ -4,6 +4,7 @@
 /// - blind Programmer
 /// - Operator
 /// - Interface
+#[derive(Clone)]
 pub enum Role {
     Programmer,
     BlindProgrammer,
