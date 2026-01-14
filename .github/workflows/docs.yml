@@ -16,7 +16,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Build docs
-        run: cargo doc --no-deps
+        run: cargo doc --workspace --no-deps
 
       - name: Upload docs
         uses: actions/upload-artifact@v4
